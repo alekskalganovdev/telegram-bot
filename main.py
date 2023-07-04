@@ -2,19 +2,20 @@ import telebot
 
 bot = telebot.TeleBot('6383848728:AAExXNVJkqYT5UfDJyvnHLr1x8hFP3y_GN0')
 
+
 @bot.message_handler(commands=['start'])
 
 def main(message):
-    bot.send_message(messge.chat.id, 'Привет')
+    bot.send_message(message.chat.id, f'Привет, {message.from_user.first_name} {message.from_user.last_name}' )
 
+@bot.message_handler()
+def info(message):
+    if message.text.lower() == 'привет':
+        bot.send_message(message.chat.id, f'Привет, {message.from_user.first_name} {message.from_user.last_name}')
+    elif message.text.lower == 'id':
+        bot.reply_to(message, f'ID: {message.from_user.id}')
+ 
 
+bot.polling(none_stop=True)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
