@@ -1,5 +1,13 @@
 import telebot
 
+bot = telebot.TeleBot('6383848728:AAExXNVJkqYT5UfDJyvnHLr1x8hFP3y_GN0')
+
+@bot.message_handler(commands=['start'])
+
+def main(message):
+    bot.send_message(messge.chat.id, 'Привет')
+
+
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -10,4 +18,3 @@ def print_hi(name):
 if __name__ == '__main__':
     print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
